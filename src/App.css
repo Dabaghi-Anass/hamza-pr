@@ -79,7 +79,7 @@ body{
     inset: 2rem 4rem;
     isolation: isolate;
     background: #042758;
-    border-radius: 1rem;
+    border-radius:  1rem 0 0 1rem;
     color: var(--text-color-100);
     padding : 1rem;
     z-index: 2;
@@ -158,6 +158,4 @@ body{
 
   *::-webkit-scrollbar-thumb {
     background-color: #39547e;
-    border-radius: 5px;
-    border: 0px solid #ffffff;
   }
