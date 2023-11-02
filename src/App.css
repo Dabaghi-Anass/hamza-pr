@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+:root{
+    --primary-color-500 : #000916;
+    --primary-color-300 : #020D1E;
+    --primary-color-200 : #0A1D3A;
+    --text-color-300 : #586A85;
+    --text-color-200 : #5C829E;
+    --text-color-100 : white;
+    --text-color-dark : #1F1F1F;
+    --text-color-yellow : #fdc639;
+    --text-color-yellow-dark : #f19c1d;
+}
+html,body,#root{
+    height: 100%;
+}
+body{
+    font-family: 'Roboto',sans-serif;
+}
+.text-primary-100{
+    color: var(--primary-color-200);
+}
+.text-primary-200{
+    color: var(--primary-color-300);
+}
+.text-primary-300{
+    color: var(--primary-color-500);
+}
+.text-secondary-100{
+    color: var(--text-color-100);
+}
+.text-secondary-200{
+    color: var(--text-color-200);
+}
+.text-secondary-300{
+    color: var(--text-color-300);
+}
+.text-yellow{
+    color: var(--text-color-yellow);
+}
+.bg-primary-100{
+    background-color: var(--primary-color-200);
+}
+.bg-primary-200{
+    background-color: var(--primary-color-300);
+}
+.bg-primary-300{
+    background-color: var(--primary-color-500);
+}
+.bg-secondary-100{
+    background-color: var(--text-color-100);
+}
+.bg-secondary-200{
+    background-color: var(--text-color-200);
+}
+.bg-secondary-300{
+    background-color: var(--text-color-300);
+}
+.bg-yellow{
+    background-color: var(--text-color-yellow);
+}
+.red-white{
+    /* aspect-ratio: 16 / 9; */
+    border: 7px solid var(--text-color-dark);
+    border-radius: .8rem;
+    height: 100%;
+    background: linear-gradient(#E31A1A 48%,var(--text-color-dark) 48%,var(--text-color-dark) 53%,white 53%);
+}
+.pokemon-list-wrapper{
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(350px,1fr));
+}
+.modal{
+    position: fixed;
+    inset: 2rem 4rem;
+    isolation: isolate;
+    background: #042758;
+    border-radius: 1rem;
+    color: var(--text-color-100);
+    padding : 1rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    gap: 1rem;
+}
+.modal .modal-overlay{
+    position: fixed;
+    background: #00000080;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.modal .childs{
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+}
+.modal .modal-head{
+    display: flex;
+    flex-direction: row-reverse;
+    padding: .5rem;
+    background: var(--primary-color-200);
+    border-radius: .5rem;
+}
+.progress{
+    --_progress : 0%;
+    background: conic-gradient(rgb(2, 132, 255) var(--_progress),white var(--_progress));
+    width: 3rem;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    padding: .3rem;
+}
+.progress-circle{
+    background: var(--primary-color-200);
+    width: 100%;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    
+}
+.fade{
+    animation: fade 2s ease-in-out infinite reverse;
+}
+@keyframes fade {
+    0%{
+        opacity: .5;
+    }
+    70%{
+        opacity: 1;
+    }
+    100%{
+        opacity: .6;
+    }
+}
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #39547e #142847;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #142847;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #39547e;
+    border-radius: 5px;
+    border: 0px solid #ffffff;
+  }
