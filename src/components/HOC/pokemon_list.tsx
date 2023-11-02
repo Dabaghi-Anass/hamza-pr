@@ -11,6 +11,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 const PokemonList = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const pokemonsRef = useRef<PokemonType[] | undefined>();
   const { current : limit} = useRef(9);
   let offset = useRef(limit);
   const [hasMore, setHasMore] = useState(true);
@@ -27,14 +28,18 @@ const PokemonList = () => {
       setModalOpen(true);
     });
   }
+  
   function searchPokemon(query: string) {
-    if(!pokemonsQuery?.data?.results) return;
-    setPokemons([...pokemonsQuery.data.results]);
-    let data = [...pokemonsQuery.data.results ];
-    data = data.filter((e) =>
-      e.name.toLowerCase().includes(query.toLowerCase().trim())
-    );
+    if(!pokemons || !pokemonsRef.current) return;
+    if(!query.length) setPokemons(pokemonsRef.current);
+    else{
+      setPokemons(pokemonsRef.current);
+      let data = [...pokemons];
+      data = data.filter((e) =>
+        e.name.toLowerCase().includes(query.toLowerCase().trim())
+      );
     setPokemons(data);
+    }
   }
   async function fetchMorePokemons(){
     let data = await fetchPokemons(offset.current,limit);
@@ -42,11 +47,13 @@ const PokemonList = () => {
       setHasMore(false);
     } else {
       setPokemons((prev) => [...prev, ...data.results]);
+      pokemonsRef.current = [...pokemonsRef.current || [],...data.results];
       offset.current += limit;
     }
   }
   useEffect(() => {
     setPokemons(pokemonsQuery?.data?.results);
+    pokemonsRef.current = pokemonsQuery?.data?.results;
   }, [pokemonsQuery?.data]);
   useEffect(() => {
     searchPokemon(searchQuery.value);
