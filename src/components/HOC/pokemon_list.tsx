@@ -12,7 +12,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 const PokemonList = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const { current : limit} = useRef(9);
-  let   offset = useRef(limit);
+  let offset = useRef(limit);
   const [hasMore, setHasMore] = useState(true);
   const [pokemons, setPokemons] = useState<PokemonType[]>([]);
   const [selectedPokemon, setSelectedPokemon] = useState<PokemonState | undefined>();
