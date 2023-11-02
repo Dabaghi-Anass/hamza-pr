@@ -11,8 +11,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 const PokemonList = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  let {current : offset} = useRef(0);
   const { current : limit} = useRef(9);
+  let   offset = useRef(limit);
   const [hasMore, setHasMore] = useState(true);
   const [pokemons, setPokemons] = useState<PokemonType[]>([]);
   const [selectedPokemon, setSelectedPokemon] = useState<PokemonState | undefined>();
@@ -37,12 +37,12 @@ const PokemonList = () => {
     setPokemons(data);
   }
   async function fetchMorePokemons(){
-    let data = await fetchPokemons(offset,limit);
+    let data = await fetchPokemons(offset.current,limit);
     if (data.results.length === 0) {
       setHasMore(false);
     } else {
       setPokemons((prev) => [...prev, ...data.results]);
-      offset += limit;
+      offset.current += limit;
     }
   }
   useEffect(() => {
@@ -72,7 +72,7 @@ const PokemonList = () => {
             <PokemonLoading />
           </section>
         }
-        onScroll={() => offset+= limit}
+        onScroll={() => offset.current += limit}
       >
         <section className="mt-16 md:mt-4 pokemon-list-wrapper w-full h-full px-8 py-4">
           {pokemons?.map((pokemon: any) => (
