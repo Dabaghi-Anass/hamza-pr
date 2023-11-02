@@ -51,11 +51,11 @@ function PokemonStates({pokemon} : {pokemon : PokemonState | undefined}) {
         </div>
         <div className="border-white border relative  rounded p-6 grid grid-cols-2 gap-4">
           <span className="section-name absolute top-0 left-2 bg-primary-100 px-2 -translate-y-3 font-semibold">
-            States( {pokemon.stats?.length} )
+            States({pokemon.stats?.length})
           </span>
           {pokemon.stats?.map(state => (
             <div className="skill flex flex-col items-center gap-1" key={state.stat.name}>
-              <div className="progress" style={{ '--_progress':  `${state.base_stat}%` }}>
+              <div className="progress" style={{ '--_progress':  `${state.base_stat}%` } as React.CSSProperties}>
                 <div className="progress-circle flex items-center justify-center" >{state.base_stat}</div>
               </div>
               <span>{state.stat.name}</span>
