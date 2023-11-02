@@ -1,4 +1,4 @@
-import { Pokemon as PokemonType } from "@/types/pokemon"
+import { Pokemon as PokemonType } from "@/types/pokemonTypes"
 type Props =  {
   pokemon : PokemonType ,
   onShowPokemon : (url:string) => void

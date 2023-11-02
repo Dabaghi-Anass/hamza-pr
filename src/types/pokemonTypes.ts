@@ -2,6 +2,10 @@ export interface Pokemon{
     name : string;
     url : string;
 }
+export interface Move extends Pokemon{};
+export interface Stat extends Pokemon{};
+export interface Form extends Pokemon{};
+export interface Version extends Pokemon{};
 export interface PokemonType extends Pokemon{}
 export interface PokemonTypes{
     slot? : number,
@@ -21,13 +25,9 @@ export interface PokemonState{
     }
 }
 
-export interface Form extends Pokemon{};
 export interface MoveInfo {
     move : Move;
 };
-export interface Move extends Pokemon{};
-export interface Version extends Pokemon{};
-export interface Stat extends Pokemon{};
 export interface StatInfo{
     base_stat : number;
     effort : number;

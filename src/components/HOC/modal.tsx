@@ -2,9 +2,11 @@ import ReactDOM from 'react-dom';
 import { ExitIcon } from "@radix-ui/react-icons"
 type ModalPropsType = { 
   onClose? : () => void,
+  open : boolean,
   children : React.ReactElement | React.ReactElement[]
 };
-const Modal = ({ children , onClose } : ModalPropsType) => {
+const Modal = ({ children ,open, onClose } : ModalPropsType) => {
+  if(!open) return null;
   const modalRoot = document.getElementById('modal-root') as Element;
   return ReactDOM.createPortal(
     <div className="modal bg-primary-300">

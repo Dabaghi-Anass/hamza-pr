@@ -1,4 +1,4 @@
-import { PokemonState } from "@/types/pokemon";
+import { PokemonState } from "@/types/pokemonTypes";
 import { Badge } from "../ui/badge";
 import Move from "./move";
 function PokemonStates({pokemon} : {pokemon : PokemonState | undefined}) {
@@ -65,10 +65,10 @@ function PokemonStates({pokemon} : {pokemon : PokemonState | undefined}) {
       </div>
       <div className="flex flex-col py-4 px-8 md:w-[60%] w-full">
         <div className="header flex items-center w-full gap-3">
-          <span className="text-3xl w-[50%]">Moves({pokemon.moves.length})</span>
+          <span className="text-3xl w-[30%]">Moves({pokemon.moves.length})</span>
           <div className="line h-1 w-full bg-[#2E4261]"></div>
         </div>
-        <div className="moves flex flex-col py-4 gap-4 max-h-[90vh] overflow-y-auto">
+        <div className="moves flex flex-col gap-4 px-4 max-h-[90vh] overflow-y-auto mt-4">
           {pokemon.moves.map(move => <Move key={move.move.name} move={move.move}/>)}
         </div>
       </div>

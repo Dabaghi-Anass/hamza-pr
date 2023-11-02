@@ -1,5 +1,5 @@
 import { fetchMoveDetail } from "@/api/queries";
-import { Move as MoveType } from "@/types/pokemon";
+import { Move as MoveType } from "@/types/pokemonTypes";
 import { CaretDownIcon, CaretUpIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
 const Move = ({move} : {move : MoveType}) => {
