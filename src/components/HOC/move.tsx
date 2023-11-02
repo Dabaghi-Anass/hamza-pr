@@ -16,7 +16,7 @@ const Move = ({move} : {move : MoveType}) => {
     }
   return (
     <div className="move flex flex-col items-start">
-        <div className="w-full h-[3rem] p-4 border-[#142847] border rounded-tr rounded-tl flex items-center justify-between">
+        <div onClick={() => fetchMove()} className="w-full hover:border-[#3e5a85] transition-all h-[3rem] p-4 border-[#142847] border rounded-tr rounded-tl flex items-center justify-between">
             <span>{move.name}</span>
             {opened ? <CaretUpIcon onClick={() => fetchMove()}/> : <CaretDownIcon onClick={() => fetchMove()} />}
         </div>
