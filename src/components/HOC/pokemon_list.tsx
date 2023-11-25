@@ -8,7 +8,6 @@ import { PokemonState, Pokemon as PokemonType } from "@/types/pokemonTypes";
 import { useSelector } from "react-redux";
 import PokemonLoading from "./pokemon_loading";
 import InfiniteScroll from "react-infinite-scroll-component";
-
 const PokemonList = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const pokemonsRef = useRef<PokemonType[] | undefined>();
