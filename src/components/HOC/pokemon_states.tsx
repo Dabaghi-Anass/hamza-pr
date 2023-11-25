@@ -13,9 +13,15 @@ function PokemonStates({pokemon} : {pokemon : PokemonState | undefined}) {
           <div className="py-2">
             <span className="pokemon-name text-2xl font-bold">{pokemon.name}</span>
             <div className="badges mt-2 flex gap-1 flex-wrap">
-              {pokemon.types.map((type) => (
-                  <Badge key={type.type.name} className="bg-[#A50028]">{type.type.name}</Badge>
-              ))}
+              {pokemon.types.map((type) => {
+                let colorHue = Math.floor(Math.random() * 360);
+                return <Badge 
+                          key={type.type.name} 
+                          style={{  backgroundColor : `hsl(${colorHue},100%,28%)`}}
+                        >
+                        {type.type.name}
+                      </Badge>
+              })}
               
             </div>
           </div>
@@ -66,9 +72,8 @@ function PokemonStates({pokemon} : {pokemon : PokemonState | undefined}) {
       <div className="flex flex-col py-4 px-8 md:w-[60%] w-full">
         <div className="header flex items-center w-full gap-3">
           <span className="text-3xl w-[30%]">Moves({pokemon.moves.length})</span>
-          <div className="line h-1 w-full bg-[#2E4261]"></div>
         </div>
-        <div className="moves flex flex-col gap-4 px-4 max-h-[90vh] overflow-y-auto mt-4">
+        <div className="moves flex flex-col gap-4  max-h-[90vh] overflow-y-auto mt-4">
           {pokemon.moves.map(move => <Move key={move.move.name} move={move.move}/>)}
         </div>
       </div>
