@@ -61,6 +61,7 @@ const PokemonList = () => {
     <>
       <Modal
         open={modalOpen}
+        title={selectedPokemon?.name + " Informations"}
         onClose={() => {
           setModalOpen(false);
         }}>

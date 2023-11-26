@@ -112,8 +112,9 @@ body{
 .modal .modal-head{
     display: flex;
     top: 0;
-    flex-direction: row-reverse;
-    padding: .5rem;
+    justify-content: space-between;
+    padding: .5rem .5rem .5rem 1rem;
+    text-transform: capitalize;
     width: 100%;
     background: var(--primary-color-200);
     border-radius: .5rem;

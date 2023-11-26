@@ -4,8 +4,8 @@ import Move from "./move";
 function PokemonStates({pokemon} : {pokemon : PokemonState | undefined}) {
   if(!pokemon) return <></>
   return (
-    <div className="pokemon-states w-full flex flex-col md:flex-row overflow-y-auto">
-      <div className="bg-primary-100 w-full md:w-[40%] overflow-y-auto h-full rounded-lg p-4 flex flex-col gap-8">
+    <div className="pokemon-states w-full static md:relative flex flex-col md:flex-row ">
+      <div className="bg-primary-100 static md:sticky top-0 w-full md:w-[40%] overflow-y-auto h-full rounded-lg p-4 flex flex-col gap-8">
         <div className="flex align-start gap-8">
           <div className="w-[50%]">
             <img className="w-full" src={pokemon?.sprites?.front_default} />
@@ -73,7 +73,7 @@ function PokemonStates({pokemon} : {pokemon : PokemonState | undefined}) {
         <div className="header flex items-center w-full gap-3">
           <span className="text-3xl w-[30%]">Moves({pokemon.moves.length})</span>
         </div>
-        <div className="moves flex flex-col gap-4  max-h-[90vh] overflow-y-auto mt-4">
+        <div className="moves flex flex-col gap-2 pe-4 max-h-[80vh] md:max-h-[100%] overflow-y-auto mt-4">
           {pokemon.moves.map(move => <Move key={move.move.name} move={move.move}/>)}
         </div>
       </div>
